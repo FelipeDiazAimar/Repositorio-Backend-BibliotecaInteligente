@@ -1,31 +1,35 @@
-// Modelo que representa un usuario (estudiante, profesor o admin) en la base de datos.
-
 const bcrypt = require('bcrypt');
 
 module.exports = (sequelize, DataTypes) => {
   const Usuario = sequelize.define('Usuario', {
-    legajo: {
-      type: DataTypes.STRING,
+    id: {
+      type: DataTypes.INTEGER,
+      autoIncrement: true,
+      primaryKey: true
+    },
+    dni: {
+      type: DataTypes.STRING(50), // igual que en la DB
       allowNull: false,
       unique: true
     },
-    nombre: DataTypes.STRING,
+    nombre: {
+      type: DataTypes.STRING(100)
+    },
     email: {
-      type: DataTypes.STRING,
+      type: DataTypes.STRING(100),
       unique: true,
       validate: { isEmail: true }
     },
-    password: DataTypes.STRING, // Se guarda encriptada
+    password: {
+      type: DataTypes.STRING(255) // igual que en la DB
+    },
     rol: {
-      type: DataTypes.ENUM('estudiante', 'profesor', 'admin'),
-      defaultValue: 'estudiante'
-    },
-    carrera: {
-      type: DataTypes.ENUM('Ingeniería en Sistemas de Información', 'Ingeniería Electromecánica', 'Ingeniería Electrónica','Ingeniería Química','Licenciatura en Administración Rural','Tecnicatura Universitaria en Programación','Tecnicatura Universitaria en Electrónica','Tecnicatura Universitaria en Mantenimiento Industrial'),
-      allowNull: true // Puede ser null si no aplica (ej. admin)
-    },
+      type: DataTypes.ENUM('usuario', 'admin'),
+      defaultValue: 'usuario'
+    }
   }, {
-    // Antes de guardar el usuario, encripta la contraseña
+    tableName: 'Usuarios',
+    timestamps: true,
     hooks: {
       beforeCreate: async (usuario) => {
         if (usuario.password) {

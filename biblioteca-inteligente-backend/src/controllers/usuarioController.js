@@ -5,9 +5,9 @@ const jwt = require('jsonwebtoken');
 // Controlador para iniciar sesión de usuario
 exports.login = async (req, res) => {
   try {
-    const { legajo, password } = req.body;
-    // Busca el usuario por legajo
-    const usuario = await Usuario.findOne({ where: { legajo } });
+    const { dni, password } = req.body;
+    // Busca el usuario por dni
+    const usuario = await Usuario.findOne({ where: { dni } });
     if (!usuario) {
       return res.status(404).json({ error: 'Usuario no encontrado' });
     }
@@ -18,7 +18,7 @@ exports.login = async (req, res) => {
     }
     // Genera un token para el usuario
     const token = jwt.sign(
-      { id: usuario.id, legajo: usuario.legajo, rol: usuario.rol },
+      { id: usuario.id, dni: usuario.dni, rol: usuario.rol },
       process.env.JWT_SECRET,
       { expiresIn: '1h' }
     );
@@ -98,5 +98,22 @@ exports.deleteUsuario = async (req, res) => {
   } catch (error) {
     console.error(error);
     res.status(400).json({ error: error.message });
+  }
+};
+
+//Cambio hecho para el turnero
+//
+//
+// Busca un usuario por su DNI
+exports.getUsuarioByDni = async (req, res) => {
+  try {
+    const usuario = await Usuario.findOne({ where: { dni: req.params.dni } });
+    if (!usuario) {
+      return res.status(404).json({ error: 'Usuario no encontrado' });
+    }
+    res.status(200).json(usuario);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Error al buscar usuario por DNI' });
   }
 };
