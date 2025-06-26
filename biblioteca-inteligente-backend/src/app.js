@@ -8,7 +8,20 @@ const axios = require('axios'); // Permite hacer pedidos HTTP a otros servicios
 const app = express();
 
 // Estas líneas preparan el servidor para aceptar pedidos y mostrar información útil en consola.
-app.use(cors());
+const corsOptions = {
+  origin: [
+    'http://localhost:3000',
+    'http://localhost:5173',
+    'http://localhost:5174',
+    process.env.FRONTEND_URL || 'https://biblioteca-inteligente-tau.vercel.app/', // Variable de entorno
+    /\.vercel\.app$/  // Permite cualquier subdominio de vercel.app
+  ],
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+};
+
+app.use(cors(corsOptions));
 app.use(morgan('dev'));
 app.use(express.json()); // Permite recibir datos en formato JSON
 
