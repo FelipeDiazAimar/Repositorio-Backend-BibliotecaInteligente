@@ -9,8 +9,20 @@ services:
     envVars:
       - key: NODE_ENV
         value: production
+      - key: DB_HOST
+        sync: false
+      - key: DB_PORT
+        value: "5432"
+      - key: DB_NAME
+        sync: false
+      - key: DB_USER
+        sync: false
+      - key: DB_PASS
+        sync: false
+      - key: DATABASE_URL
+        sync: false
       - key: JWT_SECRET
-        generateValue: true
+        sync: false
       - key: OPENROUTER_KEY
         sync: false
       - key: TU_SERVICE_ID
@@ -19,10 +31,3 @@ services:
         sync: false
       - key: TU_PUBLIC_KEY
         sync: false
-
-  - type: pgsql
-    name: biblioteca-db
-    databaseName: biblioteca_prod
-    user: biblioteca_user
-    region: oregon
-    plan: free

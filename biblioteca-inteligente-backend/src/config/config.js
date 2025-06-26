@@ -21,7 +21,11 @@ module.exports = {
   },
   production: {
     dialect: 'postgres',
-    use_env_variable: 'DATABASE_URL',
+    host: process.env.DB_HOST || 'aws-0-sa-east-1.pooler.supabase.com',
+    port: process.env.DB_PORT || 5432,
+    database: process.env.DB_NAME || 'postgres',
+    username: process.env.DB_USER || 'postgres',
+    password: process.env.DB_PASS || '',
     dialectOptions: {
       ssl: {
         require: true,
