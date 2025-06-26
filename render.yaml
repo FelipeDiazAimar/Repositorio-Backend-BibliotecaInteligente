@@ -1,0 +1,28 @@
+services:
+  - type: web
+    name: biblioteca-inteligente-backend
+    env: node
+    region: oregon
+    plan: free
+    buildCommand: cd biblioteca-inteligente-backend && npm install
+    startCommand: cd biblioteca-inteligente-backend && npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: JWT_SECRET
+        generateValue: true
+      - key: OPENROUTER_KEY
+        sync: false
+      - key: TU_SERVICE_ID
+        sync: false
+      - key: TU_TEMPLATE_ID
+        sync: false
+      - key: TU_PUBLIC_KEY
+        sync: false
+
+  - type: pgsql
+    name: biblioteca-db
+    databaseName: biblioteca_prod
+    user: biblioteca_user
+    region: oregon
+    plan: free

@@ -21,11 +21,13 @@ module.exports = {
   },
   production: {
     dialect: 'postgres',
-    host: process.env.DB_HOST || 'localhost',
-    port: process.env.DB_PORT || 5432,
-    database: process.env.DB_NAME || 'biblioteca_prod',
-    username: process.env.DB_USER || 'postgres',
-    password: process.env.DB_PASS || '',
+    use_env_variable: 'DATABASE_URL',
+    dialectOptions: {
+      ssl: {
+        require: true,
+        rejectUnauthorized: false
+      }
+    },
     logging: false
   }
 };
