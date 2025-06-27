@@ -13,7 +13,7 @@ const corsOptions = {
     'http://localhost:3000',
     'http://localhost:5173',
     'http://localhost:5174',
-    process.env.FRONTEND_URL || 'https://biblioteca-inteligente-tau.vercel.app/', // Variable de entorno
+    process.env.FRONTEND_URL || 'https://biblioteca-inteligente-tau.vercel.app/',
     /\.vercel\.app$/  // Permite cualquier subdominio de vercel.app
   ],
   credentials: true,
