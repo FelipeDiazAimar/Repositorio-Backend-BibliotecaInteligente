@@ -62,7 +62,7 @@ module.exports = (sequelize, DataTypes) => {
   Turno.associate = (models) => {
     Turno.belongsTo(models.Usuario, { foreignKey: 'id_usuario', as: 'Usuario' });
     Turno.belongsTo(models.Sala, { foreignKey: 'id_sala' });
-    Turno.hasMany(models.InvitadosTurno, { foreignKey: 'id_turno' });
+    Turno.hasMany(models.InvitadosTurno, { foreignKey: 'id_turno', as: 'InvitadosTurnos' });
   };
 
   return Turno;

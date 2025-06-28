@@ -14,8 +14,69 @@ exports.getAllTurnos = async (req, res) => {
 // Modifica getTurnoById para incluir la cantidad real de integrantes aceptados
 exports.getTurnoById = async (req, res) => {
   try {
-    console.log('Buscando turnos con id del usuario:', req.params.id);
-    const turnos = await Turno.findAll({ where: { id_usuario: req.params.id } });
+    console.log('Buscando turno por ID:', req.params.id);
+    const turno = await Turno.findByPk(req.params.id, {
+      include: [
+        {
+          model: Usuario,
+          as: 'Usuario',
+          attributes: ['id', 'nombre', 'dni', 'email']
+        },
+        {
+          model: InvitadosTurno,
+          as: 'InvitadosTurnos',
+          include: [{
+            model: Usuario,
+            as: 'Usuario',
+            attributes: ['id', 'nombre', 'dni', 'email']
+          }]
+        },
+        {
+          model: Sala,
+          attributes: ['id', 'nombre']
+        }
+      ]
+    });
+    
+    if (!turno) {
+      return res.status(404).json({ error: 'Turno no encontrado' });
+    }
+
+    res.json(turno);
+  } catch (error) {
+    console.error('Error en getTurnoById:', error);
+    res.status(500).json({ error: 'Error al obtener turno', details: error.message });
+  }
+};
+
+// Nuevo método para obtener turnos por usuario
+exports.getTurnosByUsuario = async (req, res) => {
+  try {
+    console.log('Buscando turnos del usuario ID:', req.params.id);
+    const turnos = await Turno.findAll({ 
+      where: { id_usuario: req.params.id },
+      include: [
+        {
+          model: Usuario,
+          as: 'Usuario',
+          attributes: ['id', 'nombre', 'dni', 'email']
+        },
+        {
+          model: InvitadosTurno,
+          as: 'InvitadosTurnos',
+          include: [{
+            model: Usuario,
+            as: 'Usuario',
+            attributes: ['id', 'nombre', 'dni', 'email']
+          }]
+        },
+        {
+          model: Sala,
+          attributes: ['id', 'nombre']
+        }
+      ]
+    });
+    
     if (!turnos || turnos.length === 0) {
       console.log('No se encontraron turnos para este usuario');
       return res.json([]);
@@ -31,14 +92,14 @@ exports.getTurnoById = async (req, res) => {
       });
       return {
         ...turno.toJSON(),
-        cantidad_integrantes: 1 + count // 1 por el creador
+        cantidad_integrantes_real: 1 + count // 1 por el creador
       };
     }));
 
     res.json(turnosConIntegrantes);
   } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: 'Error al obtener turnos del usuario' });
+    console.error('Error en getTurnosByUsuario:', error);
+    res.status(500).json({ error: 'Error al obtener turnos del usuario', details: error.message });
   }
 };
 
@@ -108,8 +169,8 @@ exports.getAllTurnosFull = async (req, res) => {
     });
     res.json(turnos);
   } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: 'Error al obtener turnos completos' });
+    console.error('Error en getAllTurnosFull:', error);
+    res.status(500).json({ error: 'Error al obtener turnos completos', details: error.message });
   }
 };
 
