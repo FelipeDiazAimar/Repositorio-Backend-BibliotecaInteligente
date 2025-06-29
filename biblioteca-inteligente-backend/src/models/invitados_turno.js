@@ -43,7 +43,7 @@ module.exports = (sequelize, DataTypes) => {
 
   InvitadosTurno.associate = (models) => {
     InvitadosTurno.belongsTo(models.Turno, { foreignKey: 'id_turno' });
-    InvitadosTurno.belongsTo(models.Usuario, { foreignKey: 'id_usuario' });
+    InvitadosTurno.belongsTo(models.Usuario, { foreignKey: 'id_usuario', as: 'Usuario' });
   };
 
   return InvitadosTurno;

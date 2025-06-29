@@ -21,17 +21,11 @@ module.exports = {
   },
   production: {
     dialect: 'postgres',
-    host: process.env.DB_HOST || 'aws-0-sa-east-1.pooler.supabase.com',
+    host: process.env.DB_HOST || 'localhost',
     port: process.env.DB_PORT || 5432,
-    database: process.env.DB_NAME || 'postgres',
+    database: process.env.DB_NAME || 'biblioteca_prod',
     username: process.env.DB_USER || 'postgres',
     password: process.env.DB_PASS || '',
-    dialectOptions: {
-      ssl: {
-        require: true,
-        rejectUnauthorized: false
-      }
-    },
     logging: false
   }
 };

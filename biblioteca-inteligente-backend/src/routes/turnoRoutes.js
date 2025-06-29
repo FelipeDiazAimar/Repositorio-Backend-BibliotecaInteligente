@@ -5,8 +5,14 @@ const turnoController = require('../controllers/turnoController');
 // Obtener todos los turnos (solo datos básicos, sin joins)
 router.get('/', turnoController.getAllTurnos);
 
+// Endpoint de debug para ver turnos sin joins
+router.get('/debug/simple', turnoController.getAllTurnos);
+
 // Obtener todos los turnos con usuario creador e invitados (para admin/encargado)
 router.get('/full/all', turnoController.getAllTurnosFull);
+
+// Obtener turnos de un usuario por su ID
+router.get('/usuario/:id', turnoController.getTurnosByUsuario);
 
 // Obtener turnos de un usuario por su ID
 router.get('/:id', turnoController.getTurnoById);
