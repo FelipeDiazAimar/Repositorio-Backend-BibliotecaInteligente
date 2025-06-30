@@ -30,12 +30,12 @@
 ## 🚀 Enlaces de Despliegue
 
 ### 🌐 Aplicaciones en Vivo
-- **🖥️ Frontend (Vercel):** [*[Enlace del Frontend en Vercel]*](https://repositoriofrontendbibliotech.vercel.app/)
-- **⚡ Backend API (Render):** [*[Enlace del Backend en Render]*](https://repositorio-backend-bibliotecainteligente.onrender.com/)
+- **🖥️ Frontend (Vercel):** https://repositoriofrontendbibliotech.vercel.app/
+- **⚡ Backend API (Render):** https://repositorio-backend-bibliotecainteligente.onrender.com
 
 ### 📂 Repositorios de Código
-- **🎨 Frontend Repository:** [*[Enlace del Repositorio del Frontend]*](https://github.com/JereMicheloud/Repositorio-Frontend-BibliotecaInteligente)
-- **⚙️ Backend Repository:** [*[Este Repositorio]*](https://github.com/FelipeDiazAimar/Repositorio-Backend-BibliotecaInteligente)
+- **🎨 Frontend Repository:**  https://github.com/JereMicheloud/Repositorio-Frontend-BibliotecaInteligente.git
+- **⚙️ Backend Repository:** https://github.com/FelipeDiazAimar/Repositorio-Backend-BibliotecaInteligente.git
 
 ## 🛠️ Stack Tecnológico
 
