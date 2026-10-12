@@ -1,5 +1,9 @@
 # 📚 BiblioTech - Backend API
 
+**API REST del sistema de gestión bibliotecaria inteligente BiblioTech. ([🇬🇧 English version](README.en.md))**
+
+**[🚀 Demo frontend](https://bibliotechjf.vercel.app) · [⚡ API en vivo](https://repositorio-backend-bibliotecainteligente.onrender.com/api/health) · [📦 Repo](https://github.com/FelipeDiazAimar/Repositorio-Backend-BibliotecaInteligente) · [📚 Monorepo](https://github.com/FelipeDiazAimar/BibliotecaInteligente)**
+
 <div align="center">
 
 ![Node.js](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white)
@@ -63,8 +67,8 @@
 ### 1. Clonar el Repositorio
 
 ```bash
-git clone https://github.com/tu-usuario/biblioteca-inteligente-backend.git
-cd biblioteca-inteligente-backend/biblioteca-inteligente-backend
+git clone https://github.com/FelipeDiazAimar/Repositorio-Backend-BibliotecaInteligente.git
+cd Repositorio-Backend-BibliotecaInteligente/biblioteca-inteligente-backend
 ```
 
 ### 2. Instalar Dependencias
@@ -438,7 +442,7 @@ npm run dev
 
 ## 🔄 Versionado
 
-Utilizamos [SemVer](http://semver.org/) para el versionado. Para ver las versiones disponibles, consulta los [tags de este repositorio](https://github.com/tu-usuario/biblioteca-backend/tags).
+Utilizamos [SemVer](http://semver.org/) para el versionado. Para ver las versiones disponibles, consulta los [tags de este repositorio](https://github.com/FelipeDiazAimar/Repositorio-Backend-BibliotecaInteligente/tags).
 
 ### Changelog
 
@@ -452,28 +456,27 @@ Utilizamos [SemVer](http://semver.org/) para el versionado. Para ver las version
 
 Este proyecto está bajo la Licencia MIT - ver el archivo [LICENSE.md](LICENSE.md) para más detalles.
 
-## 👨‍💻 Equipo de Desarrollo
+## 👤 Autor
 
-### Desarrolladores Principales
-
-- **[Tu Nombre]** - *Desarrollo Full Stack* - [@tu-github](https://github.com/tu-usuario)
-- **[Colaborador 1]** - *Backend Developer* - [@colaborador1](https://github.com/colaborador1)
-- **[Colaborador 2]** - *Frontend Developer* - [@colaborador2](https://github.com/colaborador2)
+**Felipe Diaz Aimar** — Desarrollo full-stack (Node.js, Express, Postgres, IA).
+- 💼 LinkedIn: https://www.linkedin.com/in/felipe-aimar/
+- 📧 Email: felipediazaimar@gmail.com
+- 🐙 GitHub: https://github.com/FelipeDiazAimar
 
 ## 📧 Contacto y Soporte
 
 ### 📞 Información de Contacto
 
-- **Email**: bibliotech.soporte@universidad.edu.ar
-- **Teléfono**: +54 11 1234-5678
+- **Email**: felipediazaimar@gmail.com
+- **LinkedIn**: https://www.linkedin.com/in/felipe-aimar/
 - **Horarios**: Lunes a Viernes, 9:00 - 18:00 ART
 
 ### 🐛 Reportar Issues
 
 Si encuentras un bug o tienes una sugerencia:
 
-1. Revisa los [issues existentes](https://github.com/tu-usuario/biblioteca-backend/issues)
-2. Crea un [nuevo issue](https://github.com/tu-usuario/biblioteca-backend/issues/new) con:
+1. Revisa los [issues existentes](https://github.com/FelipeDiazAimar/Repositorio-Backend-BibliotecaInteligente/issues)
+2. Crea un [nuevo issue](https://github.com/FelipeDiazAimar/Repositorio-Backend-BibliotecaInteligente/issues/new) con:
    - Descripción detallada del problema
    - Pasos para reproducir
    - Comportamiento esperado vs. actual
@@ -482,7 +485,7 @@ Si encuentras un bug o tienes una sugerencia:
 
 ### 💬 Discusiones
 
-Para preguntas generales, únete a nuestras [Discussions](https://github.com/tu-usuario/biblioteca-backend/discussions).
+Para preguntas generales, únete a nuestras [Discussions](https://github.com/FelipeDiazAimar/Repositorio-Backend-BibliotecaInteligente/discussions).
 
 ## 🌟 Agradecimientos
 
@@ -490,7 +493,8 @@ Para preguntas generales, únete a nuestras [Discussions](https://github.com/tu-
 - **Sequelize Team** por el excelente ORM
 - **Express.js Community** por el framework
 - **Render** por el hosting confiable
-- **Universidad [Nombre]** por el apoyo al proyecto
+
+> **English TL;DR:** BiblioTech Backend is a REST API (Node + Express 5 + Sequelize + Postgres) for smart library management: JWT auth, book catalog with cover uploads, OpenRouter AI assistant, study-room bookings with guests, search history and Swagger docs at `/api-docs`. Demo mode (`DEMO_MODE=true`) answers without any DB: `GET /api/health` → `{ok, demo:true}`, `GET /api/libros` → 5 sample books. Run: `npm install && node server.js` (`:3000`). Full English docs in [README.en.md](README.en.md).
 
 ---
 
@@ -498,7 +502,7 @@ Para preguntas generales, únete a nuestras [Discussions](https://github.com/tu-
 
 **⭐ Si este proyecto te fue útil, considera darle una estrella ⭐**
 
-[🚀 Ver Demo](https://tu-frontend.vercel.app) • [📖 Documentación](https://github.com/tu-usuario/biblioteca-backend/wiki) • [🐛 Reportar Bug](https://github.com/tu-usuario/biblioteca-backend/issues)
+[🚀 Ver Demo](https://bibliotechjf.vercel.app) • [⚡ API en vivo](https://repositorio-backend-bibliotecainteligente.onrender.com/api/health) • [📖 Documentación](https://github.com/FelipeDiazAimar/Repositorio-Backend-BibliotecaInteligente/wiki) • [🐛 Reportar Bug](https://github.com/FelipeDiazAimar/Repositorio-Backend-BibliotecaInteligente/issues)
 
 *Hecho con ❤️ para la comunidad educativa*
 
